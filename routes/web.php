@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'ItemController@index');
 
 // ユーザ登録
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');
@@ -23,3 +21,11 @@ Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
 Route::get('login','Auth\LoginController@showLoginForm')->name('login');
 Route::post('login','Auth\LoginController@login')->name('login.post');
 Route::get('logout','Auth\LoginController@logout')->name('logout.get');
+//商品詳細ページ
+Route::get('/item/{item}', 'ItemController@show');
+
+//cart_item
+Route::post('/cartitem', 'CartItemController@store'); 
+Route::get('/cartitem', 'CartItemController@index');
+Route::delete('/cartitem/{cartItem}', 'CartItemController@destroy');
+Route::put('/cartitem/{cartItem}', 'CartItemController@update');
