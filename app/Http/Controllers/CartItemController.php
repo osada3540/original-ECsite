@@ -54,7 +54,7 @@ class CartItemController extends Controller
                 'quantity' => \DB::raw('quantity + ' . $request->post('quantity') ),
             ]
         );
-        return redirect('/');
+        return redirect('/')->with('flash_message', 'カートに追加しました');
     }
 
     /**
@@ -89,7 +89,7 @@ class CartItemController extends Controller
     public function update(Request $request, CartItem $cartItem)
     {
         $cartItem->quantity = $request->post('quantity');
-        $cartItem->user_id = $request->post('user_id');
+        $cartItem->user_id = Auth::id();
         $cartItem->item_id = $request->post('item_id');
         $cartItem->save();
         return redirect('cartitem')->with('flash_message', 'カートを更新しました');

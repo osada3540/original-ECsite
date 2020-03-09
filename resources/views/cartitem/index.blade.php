@@ -1,12 +1,13 @@
 @extends('layouts.app')
+
+
+@section('content')
 <!-- フラッシュメッセージを表示するために以下を追加 -->
     @if(Session::has('flash_message'))
         <div class="alert alert-success">
             {{ session('flash_message') }}
         </div>
     @endif
-
-@section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -23,19 +24,19 @@
                                 <!-- 数量を更新するフォームに変更 -->
                                 <div class="form-inline">
                                 <!-- 数量を更新するフォームに変更 -->
-                                <form method="POST" action="/cartitem/">
+                                <form method="POST" action="/cartitem/{{ $cartitem->id }}">
                                     <input type="hidden" name="_method" value="PUT">
+                                    <input type="hidden" name="item_id" value="{{ $cartitem->id }}">
                                     {{ csrf_field() }}
-                                    
                                     <input type="text" class="form-control" name="quantity" value="{{ $cartitem->quantity }}">
                                     個
-                                    <button type="submit" class="btn btn-primary">更新</button>
+                                    <button type="submit" class="btn btn-success">更新</button>
                                 </form>
                                 <!-- 削除フォームを追加 -->
                                 <form method="POST" action="/cartitem/{{ $cartitem->id }}">
                                     <input type="hidden" name="_method" value="DELETE">
                                     {{ csrf_field() }}
-                                    <button type="submit" class="btn btn-primary ml-1">カートから削除する</button>
+                                    <button type="submit" class="btn btn-success ml-1">カートから削除する</button>
                                 </form>
                             
                                 
@@ -51,6 +52,11 @@
                     </div>
                     <div class="card-body">
                         {{ $subtotal }}円
+                    </div>
+                    <div>
+                        <a class="btn btn-success" href="/buy" role="button">
+                            レジに進む
+                        </a>
                     </div>
                 </div>
             </div>

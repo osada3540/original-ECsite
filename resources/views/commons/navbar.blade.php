@@ -5,7 +5,10 @@
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-bar">
             <span class="navbar-toggler-icon"></span>
         </button>
-        
+        <form method="GET" action="/">
+            <input type="text" name="keyword">
+            <input type="submit" value="商品検索">
+        </form>
         <div class="collapse navbar-collapse" id="nav-bar">
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav">
@@ -22,10 +25,7 @@
                 @endif
             </ul>
         </div>
-        <form method="GET" action="/">
-            <input type="text" name="keyword">
-            <input type="submit" value="商品検索">
-        </form>
+        
             <!-- ここまで -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
