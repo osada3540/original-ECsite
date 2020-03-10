@@ -14,7 +14,7 @@
             <ul class="navbar-nav">
                 @if (Auth::check())
                     <li class="nav-item"><a href="/" class="nav-link">商品一覧</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">気になる</a></li>
+                    <li class="nav-item"><a href="/likeitem" class="nav-link">気になる</a></li>
                     <li class="nav-item"><a href="/cartitem" class="nav-link">カート</a></li>
                     <li class="nav-item">{!! link_to_route('logout.get', 'Logout',[], ['class' => 'nav-link']) !!}</li>
                     

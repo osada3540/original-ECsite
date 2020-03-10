@@ -23,6 +23,8 @@ Route::post('login','Auth\LoginController@login')->name('login.post');
 Route::get('logout','Auth\LoginController@logout')->name('logout.get');
 //商品詳細ページ
 Route::get('/item/{item}', 'ItemController@show');
+Route::post('/item/{item}', 'CartItemController@store');
+Route::post('/item/{item}', 'LikeItemController@store');
 
 //cart_item
 Route::post('/cartitem', 'CartItemController@store'); 
@@ -33,3 +35,8 @@ Route::put('/cartitem/{cartItem}', 'CartItemController@update');
 //購入
 Route::get('/buy', 'BuyController@index');
 Route::post('/buy', 'BuyController@store');
+
+//気になる
+Route::post('/likeitem', 'LikeItemController@store');
+Route::get('/likeitem', 'LikeItemController@index');
+Route::delete('/likeitem/{likeItem}', 'LikeItemController@destroy');
