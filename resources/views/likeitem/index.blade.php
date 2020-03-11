@@ -12,7 +12,7 @@
                 <div class="card">
                     @foreach ($likeitems as $likeitem)
                         <div class="card-header">
-                            <a href="/item/{{ $likeitem->id }}">{{ $likeitem->name }}</a>
+                            <a href="/item/{{ $likeitem->item_id }}">{{ $likeitem->name }}</a>
                         </div>
                         <div class="card-body">
                             <div>
